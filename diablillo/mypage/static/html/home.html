@@ -1,42 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>EL DIABLO</title>
+        <title>El diablo</title>
     </head>
     <body>
         <div>
-            <h1> EL DIABLO PIZZAS</h1>
+            <h1>El diablo pizzas</h1>
         </div>
         <div>
             <form method="POST">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <button type="submit">agregar pizza</button>
+                <button type="submit">Añadir pizza</button>
             </form>
         </div>
         <div>
-            {%if pizzas %}
+            {% if pizzas %}
             <table>
                 <thead>
                     <tr>
-                        <th>Nombre Pizza</th>
+                        <th>Nombre pizza</th>
                         <th>Precio pizza</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {%for x in pizzas%}
+                {% for x in pizzas %}
                     <tr>
-                        <td>{{x.nombre_pizza}}</td>
-                        <td>{{x.precio}}</td>
+                        <td>{{ x.nombre_pizza }}</td>
+                        <td>{{ x.precio }}</td>
                     </tr>
-                {%endfor%}
+                {% endfor %}
                 </tbody>
             </table>
-            {%else%}
+            {% else %}
             <h2>No hay pizzas</h2>
-            {%endif%}
-        </div> 
+            {% endif %}
+        </div>
     </body>
 </html>

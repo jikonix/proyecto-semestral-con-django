@@ -12,10 +12,11 @@ class homepage(View):
     
     def get(self, request):
         pizzas=Pizza.objects.all()
+        print(pizzas)
         context= {
         'form': self.newpizza,
-        'pizzas': pizzas,
-    }
+        'pizzas': pizzas
+        }
         return HttpResponse(self.template.render(context, request))
 
     def post(self, request):
@@ -23,5 +24,5 @@ class homepage(View):
         self.newpizza=np(request.POST)
         form=self.newpizza
         if form.is_valid():
-            form.save
+            form.save()
         return redirect('homepage')
