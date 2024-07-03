@@ -8,41 +8,105 @@
         {% bootstrap_messages %}
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="{% static 'css/style.css' %}">
-        <title>El diablo</title>
+        <title>El comilón</title>
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
     </head>
-    <body>
-        <div>
-            <h1>El diablo pizzas</h1>
+<body>
+  <nav class="nav_border navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="main.html">El Comilon</a>
+        <img class="image" src="Imagenes/loguito.png" alt="loguito">
+        <div class="nav_end">
+          <a href="carritodecompra.html"><img class="imagen_carrito" src="Imagenes/carritonuevo.webp" alt="" style="height: 3rem;"></a> 
+          <a class="btn btn-outline-success" href="Login.html">Login</a>
+          
         </div>
-        <div>
-            <form method="POST">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit">Añadir pizza</button>
-            </form>
+    </div>
+  </nav>
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carrusel_precios">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <a href="peppe.html"><img src="Imagenes/peppe.jpg" class="d-block w-100" alt="foto pizza"></a>
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Pizza pepperoni</h5>
+            <p>Precio $8.000</p>
+          </div>
         </div>
-        <div>
-            {% if pizzas %}
-            <table>
-                <thead>
-                    <tr>
-                        <th>Nombre pizza</th>
-                        <th>Precio pizza</th>
-                    </tr>
-                </thead>
-                <tbody>
-                {% for x in pizzas %}
-                    <tr>
-                        <td>{{ x.nombre_pizza }}</td>
-                        <td>{{ x.precio }}</td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-            {% else %}
-            <h2>No hay pizzas</h2>
-            {% endif %}
+        <div class="carousel-item">
+          <a href="maragarita.html"><img src="Imagenes/pizza.jpg" class="d-block w-100" alt="Su marga?"></a>
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Pizza margarita</h5>
+            <p>Precio $7.000</p>
+          </div>
         </div>
-    </body>
+        <div class="carousel-item">
+          <a href="queso.html"><img src="Imagenes/queso.jpg" class="d-block w-100" alt="Y la queso"></a>
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Pizza Queso</h5>
+            <p>Precio $6.000</p>
+          </div>
+        </div>
+        </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+    </div>
+    <div class="row_wrapper">
+      <div class="card" style="width: 18rem;">
+        <img src="Imagenes/4estaciones.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Pizza 4 estaciones</h5>
+          <p class="card-text">$9.500</p>
+          <a href="4_estaciones.html" class="btn btn-primary">Ordenar</a>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem;">
+        <img src="Imagenes/todas carnes.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Pizza Todas Las Carnes</h5>
+          <p class="card-text">$10.500</p>
+          <a href="todas_carnes.html" class="btn btn-primary">Ordenar</a>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem;">
+        <img src="Imagenes/pollo bbq.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Pizza Pollo BBQ</h5>
+          <p class="card-text">$12.500</p>
+          <a href="pollo_bbq.html" class="btn btn-primary">Ordenar</a>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem;">
+        <img src="Imagenes/palos.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Palos de Ajo</h5>
+          <p class="card-text">$5.000</p>
+          <a href="palos.html" class="btn btn-primary">Ordenar</a>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <footer class="py-3 my-4">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Facebook</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">instagram</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Whatsapp</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Acerca de nosotros</a></li>
+        </ul>
+        <p class="text-center text-muted">&copy; 2024 El comilon, tu mejor bajon</p>
+      </footer>
+    </div>
+  </body>
 </html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        {% load static %}
+        {% load bootstrap5 %}
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}
+        {% bootstrap_messages %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <title>El Comilon</title>
+    </head>
+    <body>
+        <form action="" method="POST" id="form">
+            <div class="form">
+                <h1>Registro</h1>
+                <div class="grupo">
+                    <input type="text" name="" id="name" required><span class="barra"></span>
+                    <label for="">Nombre</label>
+                </div>
+                <div class="grupo">
+                    <input type="text" name="" id="user" required><span class="barra"></span>
+                    <label for="">Usuario</label>
+                </div>
+                <div class="grupo">
+                    <input type="email" name="" id="email" required><span class="barra"></span>
+                    <label for="">Email</label>
+                </div>
+                <div class="grupo">
+                    <input type="password" name="" id="password" required><span class="barra"></span>
+                    <label for="">Password</label>
+                </div>
+                <small class="grupo">¿Ya tienes cuenta? <a href="Login.html" class="text-primary">Inicia Sesión</a></small>
+                {% buttons %}
+                <button type="submit">registrarse</button>
+                {% endbuttons %}
+                <p class="warnings" id="warnings"></p>
+            </div>    
+        </form>
+        <script src="js/validaciones.js"></script>
+    </body>
+</html>

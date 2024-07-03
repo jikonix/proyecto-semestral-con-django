@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        {% load bootstrap5 %}
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}
+        {% bootstrap_messages %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+        <title>El Comilon</title>
+        
+    </head>
+    <body>
+        <nav class="nav_border navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="main.html">El Comilon</a>
+                <div class="nav_end">
+                    <a href="carritodecompra.html"><img class="imagen_carrito" src="Imagenes/carritonuevo.webp" alt="" style="height: 3rem;"></a> 
+                    <a class="btn btn-outline-success" href="Login.html">Login</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="wrapper">
+            <img src="Imagenes/todas carnes.jpg" alt="Todas_lascarnes"> 
+            <p>
+                Nuestra deliciosa pizza de Todas las Carnes está hecha con masa fresca y crujiente, <br>
+                salsa de tomate italiana y una generosa cantidad de pepperoni, salchicha italiana, <br> 
+                carne y jamón en cada trozo de pizza. <br>
+                Su valor es de $10.500 
+            </p>
+
+            <h6> ¿Desea agregar algún ingrediente extra?</h6>
+            
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+                <label class="form-check-label" for="flexCheckIndeterminate">
+                Extra Pepperoni $990
+                </label> <br>
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+                <label class="form-check-label" for="flexCheckIndeterminate">
+                Extra Queso $700
+                </label> <br>
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+                <label class="form-check-label" for="flexCheckIndeterminate">
+                Salchicha $1.190
+                </label> <br>
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+                <label class="form-check-label" for="flexCheckIndeterminate">
+                Pollo $1.290
+                </label> <br>
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+                <label class="form-check-label" for="flexCheckIndeterminate">
+                Extra Carne $1.390
+                </label> <br>
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+                <label class="form-check-label" for="flexCheckIndeterminate">
+                Champiñon $990
+                </label> <br>
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+                <label class="form-check-label" for="flexCheckIndeterminate">
+                Choclo $1.290
+                </label> 
+            </div>
+            <!-- Button trigger modal -->
+            {% buttons %}
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            añadir al carrito
+            </button>
+            {% endbuttons %}
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Se ha añadido al carrito</h5>
+                            {% buttons %}
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            {% endbuttons %}
+                        </div>
+                        <div class="modal-body">
+                            Su orden se encontrara en espera hasta que efectue el pago
+                        </div>
+                        <div class="modal-footer">
+                            {% buttons %}
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary">ordenar otra cosa</button>
+                            {% endbuttons %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <footer class="py-3 my-4">
+                <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Facebook</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">instagram</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Whatsapp</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Acerca de nosotros</a></li>
+                </ul>
+                <p class="text-center text-muted">&copy; 2024 El comilon, tu mejor bajon</p>
+            </footer>
+        </div>
+    </body>
+</html>
