@@ -7,8 +7,8 @@
         <p>Estas seguro que quieres eliminar el item: "{{ object }}"?</p>
         {{ form }}
         <div>
-            <button type="submit" class="btn btn-danger" onclick="window.location.href='/inventario';">SI</button>
-            <a href="{% url 'inventario' %}" class="btn btn-success">no</a>
+            <button type="submit" class="btn btn-danger">SI</button>
+            <a href="{% url 'inventario' %}" class="btn btn-success">NO</a>
         </div>
     </form>    
 </div>
