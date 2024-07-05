@@ -25,13 +25,20 @@ class session_mixin:
         
         return session_key
 
+    def get_queryset(self):
+        carro, created= Carro.objects.get_or_create(key_sesion= self.session_key)
+        return Carro.objects.filter(carro=carro)
+    
+    def get_cart(self):
+        carro, created = Carro.objects.get_or_create(session_key=self.session_key)
+
+        return carro
 
 
-class carrito(session_mixin, View):
+class agregar_carro(session_mixin, View):
 
     def post(self, request, slug):
         comida= get_object_or_404(Comidas, slug=slug)
-        
         carro, created= Carro.objects.get_or_create(key_sesion= self.session_key)
         item_carro, created= items_carro.objects.get_or_create(carro=carro, comida=comida)
         if not created:
@@ -39,3 +46,32 @@ class carrito(session_mixin, View):
             item_carro.save()
         return redirect('ver_carro')
 
+
+class ver_carro(session_mixin, ListView):
+    model=items_carro
+    template_name= "ver_carro.html"
+    context_object_name= 'items_carro'
+
+    def get_queryset(self):
+        return super().get_queryset()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        carro= self.get_cart()
+        context['carro']= carro
+        return context
+
+class borrar_item_carro(session_mixin, DeleteView):
+    model = items_carro
+    template_name= 'cart_delete.html'
+    success_url= reverse_lazy('ver_carro.html')
+
+    def get_queryset(self):
+        return super().get_queryset()
+    
+    def delete(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        success_url = self.get_success_url()
+        self.object.delete()
+        return redirect(success_url)
+    
