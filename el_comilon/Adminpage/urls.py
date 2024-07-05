@@ -11,7 +11,7 @@ from django.conf import settings
 urlpatterns = [
     
     #path('', include('Mainpage.urls')),
-    path("inventario", inventario.as_view(), name='inventario'),
+    path("inventario/", inventario.as_view(), name='inventario'),
     path("inventario/eliminar/<slug:slug>", borrar_item.as_view(), name='eliminar_item'),
     path("inventario/editar/<slug:slug>", editar_item.as_view(), name= "editar_item")
 ]

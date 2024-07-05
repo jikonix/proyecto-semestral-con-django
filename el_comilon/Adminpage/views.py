@@ -13,7 +13,6 @@ from .forms import Nuevo_item as ni
 class inventario(ListView):
     model= Comidas
     template_name= "inventario.html"
-    paginate_by= 10
     context_object_name= "comidas"
     form= ni()
 
