@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+            {% load bootstrap5 %}
+            {% bootstrap_css %}
+            {% bootstrap_javascript %}
+            {% bootstrap_messages %}
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="{% static 'css/cartita.css' %}">
+            <title>El COMILON</title>
+    </head>
+    <body>
+        <div class="header_container">
+            {% include 'base/navbar.html' %}
+            
+            {% include 'base/off-canva.html' %}
+
+            <div class="container menu-container row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="" class="card-img-top" alt="Imagen del producto 2">
+                        <div class="card-body">
+                            {% for x in comidas %}
+                            <tr>
+                                <td>Pizza de {{ x.item }}</td>
+                                <td>A un valor de {{ x.precio }}</td>
+                                <td><img src="{{ x.imagen.url }}" alt=""></td>
+                            </tr>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% include 'base/footer.html' %}
+        </div>
+        <script src="{% static 'js/validar-canvas' %}"></script>
+        <script src="https://kit.fontawesome.com/0f29ac535c.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    </body>
+</html>

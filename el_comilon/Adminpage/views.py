@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
 from django.template import loader
+from django.urls import reverse, reverse_lazy
 from django.db import models
 from django.views import View
 from django.views.generic.list import ListView
@@ -32,5 +33,5 @@ class inventario(ListView):
 class borrar_item(DeleteView):
     model=Comidas
     template_name= "eliminar_item.html"
-    success_url="inventario"
+    success_url= reverse_lazy("inventario")
     

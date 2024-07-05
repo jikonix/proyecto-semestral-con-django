@@ -9,7 +9,7 @@ class Comidas(models.Model):
     precio= models.IntegerField(null=False, default=None)
     agregado= models.BooleanField(null=False, default=False)
     fecha_ingreso= models.DateField(default=datetime.date.today(), null=False)
-    imagen = models.ImageField(upload_to="media", null=True)
+    imagen = models.ImageField(null=True)
     slug= models.SlugField(null=False, unique=True, default=None)
 
     

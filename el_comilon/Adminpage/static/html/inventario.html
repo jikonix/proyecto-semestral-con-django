@@ -32,6 +32,7 @@
                     <td>{{ x.precio }}</td>
                     <td>{{ x.agregado }}</td>
                     <td>{{ x.fecha_ingreso }}</td>
+                    <td><a href="{% url 'eliminar_item' x.slug %}" class="btn btn-danger">borrar</a></td>
                     <td><img src="{{ x.imagen.url }}" alt=""></td>
                 </tr>
                 {% endfor %}
