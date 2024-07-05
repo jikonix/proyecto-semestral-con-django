@@ -20,10 +20,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: white;
 }
 .form_div{
     margin-top: 10em;
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: white;
 }
+
+.offcanvas{
+    color: white;
+}
+
