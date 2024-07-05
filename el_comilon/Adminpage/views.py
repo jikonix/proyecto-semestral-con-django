@@ -5,7 +5,7 @@ from django.urls import reverse, reverse_lazy
 from django.db import models
 from django.views import View
 from django.views.generic.list import ListView
-from django.views.generic.edit import DeleteView
+from django.views.generic.edit import DeleteView, UpdateView
 from .models import Comidas
 from .forms import Nuevo_item as ni
 # Create your views here.
@@ -34,4 +34,15 @@ class borrar_item(DeleteView):
     model=Comidas
     template_name= "eliminar_item.html"
     success_url= reverse_lazy("inventario")
+
+
+class editar_item(UpdateView):
+    model= Comidas
+    template_name= "editar_item.html"
+    success_url= reverse_lazy("inventario")
+    form_class= ni
+
+    def form_valid(self, form) -> HttpResponse:
+        form.save()
+        return redirect("inventario")
     

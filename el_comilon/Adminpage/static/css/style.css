@@ -9,3 +9,21 @@
     margin-top: 5em;
     width: 50em;
 }
+
+.list_img{
+    border-radius: 1em;
+    width: 10em;
+}
+
+.delete{
+    margin-top: 10em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form_div{
+    margin-top: 10em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

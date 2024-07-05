@@ -23,6 +23,9 @@
                     <th scope="col">Precio</th>
                     <th scope="col">Agregado</th>
                     <th scope="col">Fecha creación</th>
+                    <th scope="col">Editar</th>
+                    <th scope="col">Eliminar</th>
+                    <th scope="col">Imagen</th>
                 </tr>
             </thead>
             <tbody>
@@ -32,8 +35,9 @@
                     <td>{{ x.precio }}</td>
                     <td>{{ x.agregado }}</td>
                     <td>{{ x.fecha_ingreso }}</td>
-                    <td><a href="{% url 'eliminar_item' x.slug %}" class="btn btn-danger">borrar</a></td>
-                    <td><img src="{{ x.imagen.url }}" alt=""></td>
+                    <td><a href="{% url 'editar_item' x.slug %}" class="btn btn-warning">Editar</a></td>
+                    <td><a href="{% url 'eliminar_item' x.slug %}" class="btn btn-danger">Borrar</a></td>
+                    <td><img src="{{ x.imagen.url }}" alt="" class="list_img"></td>
                 </tr>
                 {% endfor %}
             </tbody>
