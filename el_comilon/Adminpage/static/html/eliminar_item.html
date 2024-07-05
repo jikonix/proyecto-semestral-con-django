@@ -3,7 +3,8 @@
 {% block borrar %}
 
 <div class="delete">
-    <form method="post">{% csrf_token %}
+    <form method="post">
+        {% csrf_token %}
         <p>Estas seguro que quieres eliminar el item: "{{ object }}"?</p>
         {{ form }}
         <div>
