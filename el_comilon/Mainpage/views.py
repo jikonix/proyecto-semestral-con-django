@@ -17,26 +17,41 @@ class session_mixin:
         return super().dispatch(request, *args, **kwargs)
 
     def get_session(self, request):
-        session_key= request.session.session_key
 
-        if not session_key:
-            request.sessionkey.create()
-            session_key= request.session.session_key
-        
-        return session_key
+        if not request.session.session_key:
+            request.session.create()
+        return request.session.session_key
 
     def get_queryset(self):
         carro, created= Carro.objects.get_or_create(key_sesion= self.session_key)
         return Carro.objects.filter(carro=carro)
     
     def get_cart(self):
-        carro, created = Carro.objects.get_or_create(session_key=self.session_key)
+        carro, created = Carro.objects.get_or_create(key_sesion=self.session_key)
 
         return carro
 
 
-class agregar_carro(session_mixin, View):
+class mainpage(session_mixin, View):
+    
+    template_name= "main.html"
 
+    def get(self, request):
+
+        ofertas= Comidas.objects.filter(agregado=False).order_by('-precio')[:5]
+        listado= Comidas.objects.all().order_by('fecha_ingreso')
+
+        context = {
+            'ofertas': ofertas,
+            'listado': listado,
+        }
+
+        return render(request, self.template_name, context)
+
+  
+
+
+class agregar_al_carro(session_mixin, View):
     def post(self, request, slug):
         comida= get_object_or_404(Comidas, slug=slug)
         carro, created= Carro.objects.get_or_create(key_sesion= self.session_key)
@@ -44,8 +59,8 @@ class agregar_carro(session_mixin, View):
         if not created:
             item_carro.cantidad += 1
             item_carro.save()
-        return redirect('ver_carro')
-
+        return redirect('mainpage')
+    
 
 class ver_carro(session_mixin, ListView):
     model=items_carro

@@ -1,0 +1,13 @@
+.car_img{
+    width: 50em;
+    height: 20em;
+}
+.car_size{
+    width: 50em;
+}
+
+.mainpage_main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

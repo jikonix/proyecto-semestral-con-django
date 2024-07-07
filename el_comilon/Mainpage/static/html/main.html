@@ -1,26 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        {% load static %}
-        {% load bootstrap5 %}
-        {% bootstrap_css %}
-        {% bootstrap_javascript %}
-        {% bootstrap_messages %}
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="{% static 'css/style.css' %}">
-        <title>El comilón</title>
+{% extends 'main_master.html' %}
 
-    </head>
-    <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-gradient border-gradient-green only-bot">
-            <div class="container-fluid">
-              {% block offcanvas %}{% endblock %}
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              </div>
-            </div>
-        </nav>
-    </body>
-</html>
+{% block carousel %}
+<div id="carouselExampleCaptions" class="car_size carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    {% for x in ofertas %}
+    {% if forloop.first %}
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    {% else %}
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{ forloop.counter0 }}" aria-label="{{ forloop.counter }}"></button>
+    {% endif %}
+    {% endfor %}
+  </div>
+  <div class="carousel-inner">
+    {% for x in ofertas %}
+    {% if forloop.first %}
+    <div class="carousel-item active">
+    {% else %}
+    <div class="carousel-item ">
+    {% endif %}
+      <img src="{{ x.imagen.url }}" class="car_img d-block" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>{{ x.item }}</h5>
+        <p>${{ x.precio }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+{% endblock %}
