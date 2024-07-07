@@ -1,6 +1,6 @@
 from django.db import models
 from Adminpage.models import Comidas
-# Create your models here.
+# Modelos.
 
 
 class Carro(models.Model):
