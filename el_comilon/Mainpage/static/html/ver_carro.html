@@ -1,0 +1,31 @@
+{% extends 'main_master.html' %}
+
+{% block carro %}
+<div>
+    <table class="table table-dark table-hover table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Nombre item</th>
+                <th scope="col">Precio</th>
+                <th scope="col">eliminar</th>
+                <th scope="col">imagen</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for x in items_carro %}
+            <tr>
+                <td>{{ x.comida.item }}</td>
+                <td>{{ x.comida.precio }}</td>
+                <td>
+                    <form action="{% url 'borrar_item_carro' x.id %}" method="post" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Borrar</button>
+                    </form>
+                </td>
+                <td><img src="{{ x.comida.imagen.url }}" alt="" class="list_img"></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

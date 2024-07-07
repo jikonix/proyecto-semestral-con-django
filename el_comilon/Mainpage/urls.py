@@ -14,8 +14,9 @@ urlpatterns = [
     
     #path('', include('Mainpage.urls')),
     path('', mainpage.as_view(), name='mainpage'),
-    path('/agregar_al_carro/<slug:slug>', agregar_al_carro.as_view(), name='añadir al carro'),
-    path('ver_carro/<pk>', ver_carro.as_view(), name='carro')
+    path('agregar_al_carro/<pk>', agregar_al_carro.as_view(), name='añadir al carro'),
+    path('ver_carro/<pk>', ver_carro.as_view(), name='carro'),
+    path('ver_carro/borar_item/<int:pk>', borrar_item_carro.as_view(), name='borrar_item_carro'),
     
 ]
 

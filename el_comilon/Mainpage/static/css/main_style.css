@@ -1,13 +1,82 @@
 .car_img{
-    width: 50em;
-    height: 20em;
+    width: 70em;
+    height: 30em;
+    border-radius: 5em;
 }
 .car_size{
-    width: 50em;
+    width: 70em;
+    border-radius: 5em;
 }
 
+.carousel{
+    margin-top: 3em;
+}
 .mainpage_main{
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.menu_cards {
+    margin: 2em 5em auto 5em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.card {
+    margin-bottom: 2em;
+}
+
+.menu_cards img{
+    height: 10em;
+}
+
+.title_text{
+    margin-top: 5em;
+}
+
+.border-gradient {
+    border: 10px solid;
+    border-image-slice: 1;
+    border-width: 5px;
+  }
+.border-gradient-purple {
+border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
+}
+.border-gradient-green {
+    border-image-source: linear-gradient(to left, #00C853, #B2FF59);
+}
+.only-bot {
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+}
+
+.table{
+    margin-top: 5em;
+    width: 50em;
+}
+
+.navbar{
+    border-bottom: 1px groove red;
+}
+.list_img{
+    border-radius: 1em;
+    width: 10em;
+}
+
+.delete{
+    margin-top: 10em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+.form_div{
+    margin-top: 10em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
 }

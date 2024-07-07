@@ -36,3 +36,42 @@
   </button>
 </div>
 {% endblock %}
+
+{% block menu %}
+<div class="title_text">
+  <h1>Pizzas</h1>
+</div>
+<div class="menu_cards">
+  {% for x in listado %}
+  <div class="card" style="width: 18rem;">
+    <img src="{{ x.imagen.url }}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{ x.item }}</h5>
+      <p class="card-text">${{ x.precio }}</p>
+      <form action="{% url 'añadir al carro' x.id %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">Añadir al carro</button>
+      </form>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+<div class="title_text">
+  <h1>Agregados</h1>
+</div>
+<div class="menu_cards">
+  {% for x in agregados %}
+  <div class="card" style="width: 18rem;">
+    <img src="{{ x.imagen.url }}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{ x.item }}</h5>
+      <p class="card-text">${{ x.precio }}</p>
+      <form action="{% url 'añadir al carro' x.id %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">Añadir al carro</button>
+      </form>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

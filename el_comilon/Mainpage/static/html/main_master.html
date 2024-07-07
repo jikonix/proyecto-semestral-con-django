@@ -15,14 +15,22 @@
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-gradient border-gradient-green only-bot">
             <div class="container-fluid">
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              </div>
+                <a class="navbar-brand" href="{% url 'mainpage' %}">El comilón</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'carro' carro.id %}">Link</a>
+                  </li>
             </div>
         </nav>
         <main class="mainpage_main">
             {% block carousel %}{% endblock %}
+            {% block menu %}{% endblock %}
+            {% block carro %}{% endblock %}
         </main>
         
     </body>
